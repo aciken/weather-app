@@ -9,6 +9,11 @@
     src: url(Roboto-Thin.ttf);
 }
 
+@font-face {
+    font-family: 'CustomBold';
+    src: url(Metropolis-Medium.otf);
+}
+
 body{
 height: 100vh;
 font-family: 'CustomFont';
@@ -18,11 +23,22 @@ font-weight: 700;
 
 .hero{
     height: 100%;
-    background: linear-gradient(to right, #000428, #004e92);
+    background: linear-gradient(to right, #141e30, #243b55);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+}
+
+.white-card{
+    height: 90%;
+    padding: 30px 150px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
     
@@ -33,37 +49,76 @@ font-weight: 700;
 
 .search-city{
     border-radius: 15px;
-    background-color: white;
-    color: rgb(23, 81, 121);
+    background: rgb(31, 32, 35);
+    border: 1px solid rgb(60, 63, 68);
+    color: rgb(107, 155, 187);
     padding: 0 10px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
 .city-input{
 
 
-    border: 0;
-    outline: 0;
-    color: rgb(60, 66, 87);
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+
+    padding: 6px 12px;
+    background: rgb(31, 32, 35);
+    border: 1px solid rgb(60, 63, 68);
     border-radius: 4px;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-    padding: 4px 8px;
-    min-height: 28px;
-    vertical-align: middle;
-    transition: background-color .24s,box-shadow .24s;
-    transition-property: background-color, box-shadow;
-    transition-duration: 0.24s, 0.24s;
-    transition-timing-function: ease, ease;
-    transition-delay: 0s, 0s;
+    font-size: 13px;
+    color: rgb(247, 248, 248);
+    height: 36px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
 
+.city-input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: rgb(100, 153, 255);
+}
 
+.display{
+    display: flex;
+    flex-direction: column;
+}
 
+.where-name{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+.city-name{
+    text-align: center;
+}
+
+.country-name{
+    text-align: center;
+}
+
+.current{
+    font-family: 'CustomBold';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.current-temp{
+    font-size: 3rem;
+}
+
+.feel-temp{
+    font-family: 100;
+}
+
+.current-img{
+    height: 200px;
+    width: auto;
 }
