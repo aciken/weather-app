@@ -14,6 +14,11 @@
     src: url(Metropolis-Medium.otf);
 }
 
+@font-face {
+    font-family: 'FullBold';
+    src: url(Metropolis-Bold.otf);
+}
+
 body{
 height: 100vh;
 font-family: 'CustomFont';
@@ -32,6 +37,7 @@ font-weight: 700;
 
 .white-card{
     height: 90%;
+    width: 600px;
     padding: 30px 150px;
     background-color: white;
     display: flex;
@@ -61,9 +67,6 @@ font-weight: 700;
 }
 
 .city-input{
-
-
-
     padding: 6px 12px;
     background: rgb(31, 32, 35);
     border: 1px solid rgb(60, 63, 68);
@@ -107,7 +110,7 @@ font-weight: 700;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    align-items: center;
 }
 
 .current-temp{
@@ -118,7 +121,62 @@ font-weight: 700;
     font-family: 100;
 }
 
-.current-img{
-    height: 200px;
-    width: auto;
+.current-img {
+    display: flex;
+    justify-content: center;
+text-align: center;
+}
+
+
+.forecast-hour{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.one-hour{
+    cursor: default;
+    border-radius: 15px;
+    background-color: #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 120px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
+    transition: .3s;
+}
+
+.one-hour:hover{
+    scale: 102%;
+}
+
+.weather-img{
+    width: 60px;
+    height: 60px;
+}
+
+.weather-part{
+    display: flex;
+    justify-content: center;
+    align-items:end;
+    gap: 5px;
+}
+
+.real-temp-forecast{
+    font-size: 1.5rem;
+}
+
+.temp-feeling-forecast{
+    font-size:.7rem;
+
+}
+
+
+
+.forecast-time{
+    font-family: 'FullBold';
+    font-size: 1.5rem;
 }
