@@ -16,6 +16,7 @@ const weatherBack = (function(){
 
 const apiFunct = () =>{
 
+    const hero = document.querySelector('.hero');
     const searchBtn = document.querySelector('.search-city');
     const cityInput = document.querySelector('.city-input');
     const cityName = document.querySelector('.city-name');
@@ -45,7 +46,7 @@ const apiFunct = () =>{
             forecast.removeChild(forecast.firstChild);
         }
 
-        console.log(data)
+
         cityName.textContent = data['location'].name;
         countryName.textContent = data['location'].country;
 
@@ -59,37 +60,45 @@ const apiFunct = () =>{
         let timeComponents = timePart.split(':'); 
         let hour = timeComponents[0]; 
         
-        console.log(hour);
+
 
         currentImg.style.cssText = "width: 200px; height: 200px;"
+
 
         if(data.current.condition.text.includes('rain')){
           if(hour > 7 && hour < 18){
             if(data.current.cloud > 20){
               currentImg.src = weatherBack.background.cloud_rain[1];
+              hero.style.cssText = weatherBack.background.cloud_rain[0]
             } else{
               currentImg.src = weatherBack.background.rain_day[1];
+              hero.style.cssText = weatherBack.background.rain_day[0];
             }
           } else{
             currentImg.src = weatherBack.background.rain_night[1];
+            hero.style.cssText = weatherBack.background.rain_night[0];
           }
 
         } else{
+
+
           if(hour > 7 && hour < 18){
             if(data.current.cloud > 20){
               currentImg.src = weatherBack.background.cloud[1];
+              hero.style.cssText = weatherBack.background.cloud[0];
             } else{
               currentImg.src = weatherBack.background.sunny[1];
+              hero.style.cssText = weatherBack.background.sunny[0];
             }
 
           } else{
             currentImg.src = weatherBack.background.night[1];
+            hero.style.cssText = weatherBack.background.night[0];
           }
         }
 
         for(let i = 0; i < 5; i++){
           let image;
-          console.log(data.forecast.forecastday[0].hour[hour])
           if(data.forecast.forecastday[0].hour[hour].condition.text.includes('rain')){
             if(hour > 7 && hour < 18){
               if(data.forecast.forecastday[0].hour[hour].cloud > 20){
@@ -111,7 +120,6 @@ const apiFunct = () =>{
               image = weatherBack.background.night[1];
             }
           }
-          console.log(image)
           createDOM(image, data.forecast.forecastday[0].hour[hour].temp_c, data.forecast.forecastday[0].hour[hour].feelslike_c, hour)
           if(hour == 23){
             hour = -1;
