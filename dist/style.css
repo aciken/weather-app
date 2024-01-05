@@ -53,6 +53,37 @@ font-weight: 700;
     gap: 15px;
 }
 
+.unit-case{
+    cursor: pointer;
+    width: 70px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: black;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.unit-case.clicked{
+    justify-content:right;
+}
+
+.unit-change{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.unit-ball{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
 .search-city{
     border-radius: 15px;
     background: rgb(31, 32, 35);
