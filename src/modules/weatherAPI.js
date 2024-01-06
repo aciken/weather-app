@@ -1,6 +1,7 @@
 import createDOM from "./DOMcreate";
 import unitChange from "./unitChange";
 
+
 const weatherBack = (function(){
   const background = {
     sunny: ['background: linear-gradient(to right, #ffb75e, #ed8f03);', "../dist/images/sun.png"],
@@ -26,6 +27,9 @@ const apiFunct = () =>{
     const feelTemp = document.querySelector('.feel-temp');
     const currentImg = document.querySelector('.current-img');
     const unitCase = document.querySelector('.unit-case');
+    const wrapperTipe = document.querySelector('.wraper-tipe')
+
+  
 
     let preveusCity = ''
 
@@ -55,13 +59,18 @@ const apiFunct = () =>{
    console.log(unitValue)
    if(unitValue == false){
      real_temp = data['current'].temp_c + '°C';
-      feel_temp = data['current'].feelslike_c = '°C';
+      feel_temp = data['current'].feelslike_c + '°C';
    } else {
       real_temp = data['current'].temp_f + '°F';
       feel_temp = data['current'].feelslike_f + '°F';
    }
  
    const forecast = document.querySelector('.forecast-hour');
+   const wraper = document.querySelector('.wraper-tipe');
+
+   while (wraper.firstChild) {
+    wraper.removeChild(wraper.firstChild);
+}
  
    while (forecast.firstChild) {
        forecast.removeChild(forecast.firstChild);
@@ -84,8 +93,10 @@ const apiFunct = () =>{
  
  
    currentImg.style.cssText = "width: 200px; height: 200px;"
+
  
- 
+   
+   
    if(data.current.condition.text.includes('rain')){
      if(hour > 7 && hour < 18){
        if(data.current.cloud > 20){
@@ -117,8 +128,15 @@ const apiFunct = () =>{
        hero.style.cssText = weatherBack.background.night[0];
      }
    }
+
+
+
+
+
  
    for(let i = 0; i < 5; i++){
+
+
      let image;
      if(data.forecast.forecastday[0].hour[hour].condition.text.includes('rain')){
        if(hour > 7 && hour < 18){
@@ -155,8 +173,8 @@ const apiFunct = () =>{
  
    }
  
- 
- 
+
+
  })
  
  
@@ -177,6 +195,9 @@ const apiFunct = () =>{
     weatherFunct()
 
   })
+
+
+
 
     searchBtn.addEventListener('click', weatherFunct)
         
